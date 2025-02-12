@@ -1,15 +1,21 @@
 ---
 import Card from "./Card.astro";
-
-
 ---
-<div class="text-center my-16 w-full">
-    <h2 class="my-4 xs:text-1xl md:text-3xl tracking-widest font-bold bg-neutral-900 text-neutral-300 border-r-2 border-l-2 border-orange-500 w-11/12 mx-auto">PRODUCTOS EN OFERTA</h2>
-    <div class="grid md:grid-cols-3 w-11/12 mx-auto gap-5">
-        <Card />    
-        <Card style="xs:hidden"/>    
-        <Card style="xs:hidden"/>    
 
-    </div>
-    <a href="#" class="bg-neutral-200 px-2 rounded-sm block my-4 xs:w-1/2 md:w-3/12 mx-auto text-sm text-neutral-600 hover:text-black border-x-2 border-orange-500">Ver ofertas</a>
+<div class="text-center my-20 w-full">
+  <h2
+    class="my-4 xs:text-1xl md:text-3xl tracking-widest font-bold bg-neutral-900 text-neutral-300 border-r-2 border-l-2 border-orange-500 w-fit px-2 mx-auto"
+  >
+    PRODUCTOS EN OFERTA
+  </h2>
+  <div class="grid md:grid-cols-3 w-11/12 mx-auto gap-5">
+    <Card />
+    <Card style="xs:hidden" />
+    <Card style="xs:hidden" />
+  </div>
+  <a
+    href="#"
+    class="bg-neutral-200 px-2 rounded-sm block my-4 xs:w-1/2 md:w-3/12 mx-auto text-sm text-neutral-600 hover:text-black border-x-2 border-orange-500"
+    >Ver ofertas</a
+  >
 </div>

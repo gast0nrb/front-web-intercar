@@ -1,39 +1,53 @@
 ---
 const product = {
-    sku : "310303909",
-    title : "Soy un producto random",
-    price : 10500,
-    discount  :  0, 
-    category : {
-        id : 1, 
-        name : "TEST_CATEGORY",
-        subcategory : {
-           id : 1,
-           name : "TEST_SUBCATEGORY" 
-        }
-    }
-}
+  sku: "310303909",
+  title: "Soy un producto random",
+  price: 10500,
+  discount: 0,
+  category: {
+    id: 1,
+    name: "TEST_CATEGORY",
+    subcategory: {
+      id: 1,
+      name: "TEST_SUBCATEGORY",
+    },
+  },
+};
 
 const { style } = Astro.props;
-
 ---
 
-<div class=`drop-shadow-md rounded flex-wrap bg-neutral-100 text-md text-center md:block ${style} duration-200 hover:text-neutral-200 hover:scale-105  hover:bg-neutral-800 group`>
-    <div class="img">
-        <img  class="w-full p-0.5 pb-0" src="/public/defaultFile.png" alt="">
+<div
+  class=`drop-shadow-md rounded flex-wrap bg-neutral-100 text-md text-center md:block ${style} duration-200 hover:text-neutral-200 hover:scale-105  hover:bg-neutral-800 group`
+>
+  <div class="img">
+    <img class="w-full" src="/public/defaultFile.png" alt="" />
+  </div>
+  <div class="desc-section group-hover:p-0 text-neutral-600">
+    <div class="sku group-hover:bg-neutral-950 bg-neutral-200 text-xs">
+      <p class="group-hover:text-neutral-400">
+        <span class="group-hover:text-orange-500">SKU:</span>{product.sku}
+      </p>
     </div>
-    <div class="desc-section p-0.5 group-hover:p-0 text-neutral-600">
-        <div class="sku group-hover:bg-neutral-950 bg-neutral-300 text-xs">
-            <p class="group-hover:text-neutral-400"><span class="group-hover:text-orange-500">SKU:</span>{ product.sku }</p>
-        </div>
-        <div class="title">
-            <p class=""><span class="group-hover:text-neutral-400">{ product.title.toUpperCase() }</p>
-        </div>
-        <div class="price group-hover:text-neutral-400">
-        <p class="group-hover:text-neutral-300"> $ <span>{product.price}</span></p> 
-        </div>
-        <div class="subcategory flex-wrap text-center">
-            <a class="text-xs underline text-orange-500 opacity-60 group-hover:opacity-100" href="#"> Ver más {product.category.subcategory.name.toLowerCase()}</a>
-        </div>
+    <div class="title">
+      <p class="">
+        <span class="group-hover:text-neutral-400"
+          >{product.title.toUpperCase()}</span
+        >
+      </p>
+      <div class="price group-hover:text-neutral-400">
+        <p class="group-hover:text-neutral-300">
+          $ <span>{product.price}</span>
+        </p>
+      </div>
+      <div class="subcategory flex-wrap text-center">
+        <a
+          class="text-xs underline text-orange-500 opacity-60 group-hover:opacity-100"
+          href="#"
+        >
+          Ver más {product.category.subcategory.name.toLowerCase()}</a
+        >
+      </div>
     </div>
+  </div>
 </div>
