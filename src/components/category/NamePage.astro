@@ -1,0 +1,12 @@
+---
+const {name} = Astro.props;
+---
+
+<div class="mt-10 w-full">
+  <h2
+    class="font-bold xs:text-xl md:text-2xl tracking-widest bg-neutral-900 w-fit mx-auto px-2 rounded-sm text-neutral-200 border-b-4 border-orange-500 xs:mx-2 md:mx-auto mb-0.5"
+  >
+    Resultados para: <span class="text-nowrap">
+        {name.toLowerCase()}</span>
+  </h2>
+</div>

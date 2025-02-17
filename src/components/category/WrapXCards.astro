@@ -1,0 +1,114 @@
+---
+import Card from "../Card.astro";
+
+const products = [
+  {
+    sku: "310303909",
+    title: "Soy un producto random",
+    price: 10500,
+    discount: 0,
+    category: {
+      id: 1,
+      name: "TEST_CATEGORY",
+      subcategory: {
+        id: 1,
+        name: "TEST_SUBCATEGORY",
+      },
+    },
+  },
+  {
+    sku: "310303909",
+    title: "Soy un producto random",
+    price: 10500,
+    discount: 0,
+    category: {
+      id: 1,
+      name: "TEST_CATEGORY",
+      subcategory: {
+        id: 1,
+        name: "TEST_SUBCATEGORY",
+      },
+    },
+  },
+  {
+    sku: "310303909",
+    title: "Soy un producto random",
+    price: 10500,
+    discount: 0,
+    category: {
+      id: 1,
+      name: "TEST_CATEGORY",
+      subcategory: {
+        id: 1,
+        name: "TEST_SUBCATEGORY",
+      },
+    },
+  },
+  {
+    sku: "310303909",
+    title: "Soy un producto random",
+    price: 10500,
+    discount: 0,
+    category: {
+      id: 1,
+      name: "TEST_CATEGORY",
+      subcategory: {
+        id: 1,
+        name: "TEST_SUBCATEGORY",
+      },
+    },
+  },
+  {
+    sku: "310303909",
+    title: "Soy un producto random",
+    price: 10500,
+    discount: 0,
+    category: {
+      id: 1,
+      name: "TEST_CATEGORY",
+      subcategory: {
+        id: 1,
+        name: "TEST_SUBCATEGORY",
+      },
+    },
+  },
+  {
+    sku: "310303909",
+    title: "Soy un producto random",
+    price: 10500,
+    discount: 0,
+    category: {
+      id: 1,
+      name: "TEST_CATEGORY",
+      subcategory: {
+        id: 1,
+        name: "TEST_SUBCATEGORY",
+      },
+    },
+  },
+  {
+    sku: "310303909",
+    title: "Soy un producto random",
+    price: 10500,
+    discount: 0,
+    category: {
+      id: 1,
+      name: "TEST_CATEGORY",
+      subcategory: {
+        id: 1,
+        name: "TEST_SUBCATEGORY",
+      },
+    },
+  },
+];
+//Limitar desde la api a 9 elementos
+
+import Pagination from "../Pagination.astro";
+---
+
+<div class="mb-10 mt-5">
+  <div class="grid md:grid-cols-3 w-11/12 mx-auto gap-5">
+    {products.map((p) => <Card />)}
+  </div>
+  <Pagination />
+</div>

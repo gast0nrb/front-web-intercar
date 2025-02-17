@@ -3,4 +3,7 @@
 @theme {
     --breakpoint-xs : 200px;
     --breakpoint-md : 720px;
+    --font-display: "Roboto", sans-serif;
 }
+    
+

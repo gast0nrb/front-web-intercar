@@ -1,11 +1,13 @@
 ---
 import "../styles/global.css"
-import Nav from "../components/home/Nav.astro"
+import Footer from "../components/home/Footer.astro"
+import Nav from "../components/home/Nav"
+import Finder from "../components/home/Finder.astro"
 ---
 
 
 <!doctype html>
-<html lang="en">
+<html lang="es" class="scroll-smooth" >
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -13,8 +15,12 @@ import Nav from "../components/home/Nav.astro"
 		<meta name="generator" content={Astro.generator} />
 		<title>INTERCAR CHILE</title>
 	</head>
-	<body>
-		<Nav/>		
-		<slot />
+	<body class="font-display">
+			<Nav client:load/>
+			<Finder/>
+			<article>
+				<slot/>
+			</article>
+			<Footer/>
 	</body>
 </html>
