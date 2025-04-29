@@ -1,8 +1,9 @@
 ---
 import "../styles/global.css"
 import Footer from "../components/home/Footer.astro"
-import Nav from "../components/home/Nav"
+import Header from "../components/home/Header"
 import Finder from "../components/home/Finder.astro"
+import Nav from "../components/home/Nav"
 ---
 
 
@@ -16,8 +17,9 @@ import Finder from "../components/home/Finder.astro"
 		<title>INTERCAR CHILE</title>
 	</head>
 	<body class="font-display">
-			<Nav client:load/>
+			<Header/>
 			<Finder/>
+			<Nav client:load/>
 			<article>
 				<slot/>
 			</article>

@@ -1,9 +1,22 @@
 @import "tailwindcss";
 
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Jersey+25&family=Silkscreen:wght@400;700&display=swap');
+
 @theme {
     --breakpoint-xs : 200px;
     --breakpoint-md : 720px;
-    --font-display: "Roboto", sans-serif;
+    --default-font-family: "Jersey 25", sans-serif;
 }
     
 
+.lista {
+    background-color: rgba(0, 0, 0, 0.810);
+    border-bottom : solid 0.2px rgba(0, 0, 0, 0.409);
+    color : whitesmoke;
+    font-size : 1rem;
+}
+
+.lista:hover {
+    border-bottom : solid 0.1px rgba(255, 255, 255, 0.21);
+    color : rgb(255, 111, 0);
+}
