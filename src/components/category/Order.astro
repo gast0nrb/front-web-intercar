@@ -5,15 +5,11 @@ const { name } = Astro.props;
 ---
 
 <NamePage name={name} />
-<h3 class="font-semibold pt-5 pl-3">Filtros</h3>
-<div class="md:w-8/12 xs:w-6/12 px-5 md:grid md:grid-cols-2">
-  <div id="select-category">
-    <h3 class="text-xs ml-3 text-nowrap">Seleccionar categoria</h3>
-    <select
-      class="md:w-11/12 xs:w-full text-center drop-shadow-xl rounded-sm text-xs bg-neutral-700 text-neutral-100 font-semibold ml-3"
-    >
-      <option> Ampolletas </option>
-    </select>
-  </div>
-  <SelectSubcategory />
+<div class="bg-neutral-50 w-11/12 mx-auto mt-5 p-2 rounded-xs drop-shadow-sm">
+<h3 class="font-semibold text-center text-xl">Filtros</h3>
+<form action="" class="grid grid-cols-2 gap-5 w-11/12 mx-auto">
+  <SelectSubcategory name={"Categorias"} url={"http://localhost:8080/api/intercar/category"}/>
+  <SelectSubcategory name={"Subcategorias"} url={"http://localhost:8080/api/intercar/category/2/subcategories"}/>
+  <button class=" w-fit px-5 rounded-y-xs bg-neutral-100 drop-shadow-lg text-xs ml-auto -mr-5 col-span-2 text-orange-500 duration-100 border-x-1 border-orange-500 opacity-60 hover:opacity-100 ">Aplicar</button>
+</form>
 </div>

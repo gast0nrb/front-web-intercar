@@ -1,8 +1,26 @@
+---
+const { url, name } = Astro.props;
+const returnInfo = async () => {
+  try {
+    const res = await fetch(url, { method: "GET", mode: "cors" });
+    const data = await res.json();
+    return data.data;
+  } catch (err) {
+    return err;
+  }
+};
+const data = await returnInfo();
+---
+
 <div id="select-subcategory" class="">
-  <h3 class="text-xs ml-3 text-nowrap">Filtrar</h3>
+  <h3 class="text-xs ml-3 text-nowrap font-black">{name}</h3>
   <select
     class="md:w-11/12 xs:w-full text-center drop-shadow-xl rounded-sm text-xs bg-neutral-700 text-neutral-100 font-semibold ml-3"
   >
-    <option> Ampolletas </option>
-  </select>
+{
+  data.map((val: any)=> <option value={val.id}>{val.name}</option>)
+}
+</select>
+{
+}
 </div>
