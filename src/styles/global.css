@@ -1,7 +1,5 @@
 @import "tailwindcss";
 
-@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Jersey+25&family=Silkscreen:wght@400;700&display=swap');
-
 @theme {
     --breakpoint-xs : 200px;
     --breakpoint-md : 720px;

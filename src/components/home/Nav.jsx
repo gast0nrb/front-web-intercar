@@ -11,12 +11,12 @@ const Nav = () => {
 				</button>
                 <ul 
                     className={`${show ? "h-full" : "h-0" } bg-white w-full z-10 overflow-hidden text-center`}>
-                    <li className="lista">Inicio</li>
-                    <li className="lista">Quienes somos</li>
-                    <li className="lista">Contacto</li>
-                    <li className="lista">Sucursales</li>
-                    <li className="lista">Ofertas</li>
-                    <li className="lista">Categorias</li>
+                    <li className="lista"><a href="/">Inicio</a></li>
+                    <li className="lista"><a href="/#nosotros">Quienes somos</a></li>
+                    <li className="lista"><a href="/#contacto">Contacto</a></li>
+                    <li className="lista"><a href="/#sucursales">Sucursales</a></li>
+                    <li className="lista"><a href="/busqueda">Ofertas</a></li>
+                    <li className="lista"><a href="/categorias">Categorias</a></li>
                 </ul>
 			</nav>
 			

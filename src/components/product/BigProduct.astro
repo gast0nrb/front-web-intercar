@@ -15,37 +15,59 @@ const product = {
     },
   },
 };
+const { url } = Astro.props;
+const getProduct = async()=> {
+  try {
+    const getData = await fetch(url, {method : 'GET', mode: 'cors' });
+    const jsonData = await getData.json();
+    return jsonData.data
+  }catch(err) {return err}
+}
+const data = await getProduct();
+console.log(data)
 ---
 
 <div
   class="w-11/12 mx-auto grid md:grid-cols-2 xs:grid-cols-1 my-10 rounded-xs md:gap-5"
 >
   <div class="" id="picture">
-    <p class="bg-neutral-900 text-neutral-300 pl-3 rounded-tl-xs">SKU: {product.sku}</p>
+    <p class="bg-neutral-900 text-neutral-300 pl-3 rounded-tl-xs">
+      SKU: {data.sku}
+    </p>
     <img class="w-full" src="/defaultFile.png" alt="" />
   </div>
   <div class="bg-neutral-100 drop-shadow-lg" id="descripcion">
     <div class="title">
-      <h3 class="xs:text-xl md:text-2xl font-bold text-center bg-neutral-900 text-orange-500 rounded-t-xs">{product.title.toUpperCase()}</h3>
+      <h3
+        class="xs:text-xl md:text-2xl font-bold text-center bg-neutral-900 text-orange-500 rounded-t-xs"
+      >
+        {data.title.toUpperCase()}
+      </h3>
     </div>
     <div class="p-1" id="description">
-      <p class="xs:text-sm md:text-lg">{product.description}</p>
+      <p class="xs:text-sm md:text-lg text-center">{data.description}</p>
     </div>
     <div class="text-center" id="precios">
-        <h3 class="bg-neutral-200 font-bold">VALORES</h3>
-        <p>${product.price}</p>
+      <h3 class="bg-neutral-200 font-bold">VALORES</h3>
+      <p>${data.price}</p>
     </div>
     <div class="text-center" id="precios">
-        <h3 class="bg-neutral-200 font-bold">PORCENTAJE DESCUENTO</h3>
-        <p>{product.discount} %</p>
+      <h3 class="bg-neutral-200 font-bold">PORCENTAJE DESCUENTO</h3>
+      <p>{data.discount} %</p>
     </div>
     <div class="text-center" id="categorias">
-        <h3 class="bg-neutral-200 font-bold">CATEGORIA</h3>
-        <a class="underline text-orange-300 hover:text-orange-500" href="/categorias">{product.category.name.toLowerCase()}</a>
+      <h3 class="bg-neutral-200 font-bold">CATEGORIA</h3>
+      <a
+        class="underline text-orange-300 hover:text-orange-500"
+        href="/categorias">{data.SUBCATEGORY.CATEGORY.name.toLowerCase()}</a
+      >
     </div>
     <div class="text-center" id="categorias">
-        <h3 class="bg-neutral-200 font-bold">SUBCATEGORIA</h3>
-        <a class="underline text-orange-300 hover:text-orange-500" href="/categorias">{product.category.subcategory.name.toLowerCase()}</a>
+      <h3 class="bg-neutral-200 font-bold">SUBCATEGORIA</h3>
+      <a
+        class="underline text-orange-300 hover:text-orange-500"
+        href="/categorias">{data.SUBCATEGORY.name.toLowerCase()}</a
+      >
     </div>
   </div>
 </div>
