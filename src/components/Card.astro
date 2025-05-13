@@ -14,7 +14,7 @@ const product = {
   },
 };
 
-const { style } = Astro.props;
+const { style, sku,imgUrl, title, price, subcategory  } = Astro.props;
 ---
 
 <div
@@ -30,18 +30,18 @@ const { style } = Astro.props;
   <div class="desc-section group-hover:p-0 text-neutral-600">
     <div class="sku group-hover:bg-neutral-950 bg-neutral-200 text-xs">
       <p class="group-hover:text-neutral-400">
-        <span class="group-hover:text-orange-500">SKU:</span>{product.sku}
+        <span class="group-hover:text-orange-500">SKU:</span>{sku}
       </p>
     </div>
     <div class="title">
       <p class="">
         <span class="group-hover:text-neutral-400"
-          >{product.title.toUpperCase()}</span
+          >{title.toUpperCase()}</span
         >
       </p>
       <div class="price group-hover:text-neutral-400">
         <p class="group-hover:text-neutral-300">
-          $ <span>{product.price}</span>
+          $ <span>{price}</span>
         </p>
       </div>
       <div class="subcategory flex-wrap text-center">
@@ -49,7 +49,7 @@ const { style } = Astro.props;
           class="text-xs underline text-orange-500 opacity-60 group-hover:opacity-100"
           href="#"
         >
-          Ver más {product.category.subcategory.name.toLowerCase()}</a
+          VER MÁS {subcategory.name.toUpperCase()}</a
         >
       </div>
     </div>

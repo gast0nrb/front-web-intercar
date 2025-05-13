@@ -1,0 +1,61 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Order from "../components/category/Order.astro";
+import Pagination from "../components/Pagination.astro";
+import Card from "../components/Card.astro";
+
+let apiUrl = "http://localhost:8080/api/intercar"; //Url de base
+const rgx = /[?&]/; //Regex que filtra los diferentes parametros en el req del cliente
+const rgxDividirValor = /[a-zA-Z]+=/; //Regex que divide los valors del formato "page=10"
+const rq = Astro.request; //toma el request
+const url = rq.url.split(rgx); //Hace un array con los valores pasados en el url con la regex "rgx"
+//Variables para filtrar valores posteriormente
+let filter = ""; //Si es 0 trae las categorias, si es 1 trae las subcategorias como filtro
+let id = ""; //El id por el que filtramos, ya sea de la categoria o subcategoria
+let page = ""; //Pagination valor
+
+//Recorre los valores de url (array con los parametros de url)
+//Y los asigna al valor correspondiente para su posterior uso en el la url en la cual se realizará el fetch
+url.map((val) => {
+	if (val.includes("filter")) {
+		filter = val.replace(rgxDividirValor, "");
+	}
+	if (val.includes("id")) {
+		id = val.replace(rgxDividirValor, "");
+	}
+	if (val.includes("page")) {
+		page = val.replace(rgxDividirValor, "");
+	}
+});
+const getProductByCategories = async () => {
+	if (filter == "0") {
+		apiUrl += `/category/${id}/products?page=${page}`;
+	} else if (filter == "1") {
+		apiUrl += `/subcategory/${id}/products?page=${page}`;
+	} else {
+		apiUrl += `/category/1/products?page=0`;
+	}
+	try {
+		console.log(apiUrl);
+		const fetchProducts = await fetch(apiUrl, {
+			method: "GET",
+			mode: "cors",
+		});
+		const jsonProducts = await fetchProducts.json();
+		return jsonProducts.data;
+	} catch (err) {
+		return err;
+	}
+};
+const data = await getProductByCategories();
+---
+
+<Layout>
+	<Order name="Ampolletas" />
+	<div class="mb-10 mt-10">
+		<div class="grid md:grid-cols-3 w-11/12 mx-auto gap-10">
+			{data.map((p: any) => <Card sku={p.sku} title={p.title}, price={p.price} subcategory={p.SUBCATEGORY}/>)}
+		</div>
+		<Pagination />
+	</div>
+</Layout>
