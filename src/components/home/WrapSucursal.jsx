@@ -13,7 +13,6 @@ const WrapSucursal = () => {
           mode: 'cors'
         })
         const jsonSucursales = await fetchSucursales.json()
-        console.log(jsonSucursales.data)
         setSucursales([...jsonSucursales.data])
       } catch (err) {
         setError("No se encontraron sucursales");

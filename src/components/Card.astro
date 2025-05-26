@@ -1,19 +1,4 @@
 ---
-const product = {
-  sku: "310303909",
-  title: "Soy un producto random",
-  price: 10500,
-  discount: 0,
-  category: {
-    id: 1,
-    name: "TEST_CATEGORY",
-    subcategory: {
-      id: 1,
-      name: "TEST_SUBCATEGORY",
-    },
-  },
-};
-
 const { style, sku,imgUrl, title, price, subcategory  } = Astro.props;
 ---
 
@@ -22,7 +7,7 @@ const { style, sku,imgUrl, title, price, subcategory  } = Astro.props;
   ${style} duration-200 hover:text-neutral-200 hover:scale-105  hover:bg-neutral-800 group
   w-11/12 mx-auto`
 >
-<a href="/producto">
+<a href={`/producto/${sku}`}>
   <div class="img">
     <img class="w-full" src="/public/defaultFile.png" alt="" />
   </div>
@@ -36,7 +21,7 @@ const { style, sku,imgUrl, title, price, subcategory  } = Astro.props;
     <div class="title">
       <p class="">
         <span class="group-hover:text-neutral-400"
-          >{title.toUpperCase()}</span
+          >{title?.toUpperCase()}</span
         >
       </p>
       <div class="price group-hover:text-neutral-400">
@@ -47,9 +32,9 @@ const { style, sku,imgUrl, title, price, subcategory  } = Astro.props;
       <div class="subcategory flex-wrap text-center">
         <a
           class="text-xs underline text-orange-500 opacity-60 group-hover:opacity-100"
-          href="#"
+          href={`/categorias?filter=1&id=${subcategory?.id || 1}&page=0`}
         >
-          VER MÁS {subcategory.name.toUpperCase()}</a
+          VER MÁS {subcategory?.name.toUpperCase()}</a
         >
       </div>
     </div>

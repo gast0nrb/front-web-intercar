@@ -1,6 +1,21 @@
 ---
 import Card from "./Card.astro";
-const {title, buttonTitle} = Astro.props;
+const { title, buttonTitle, url="http://localhost:8080/api/intercar/onsale/products?page=0" } = Astro.props;
+const getProducts = async () => {
+  try {
+    const getInfo = await fetch(
+      url,{
+        mode: "cors",
+        method: "GET",
+      },
+    );
+    const jsonInfo = await getInfo.json();
+    return jsonInfo.data;
+  } catch (err) {
+    return err;
+  }
+};
+const data = await getProducts();
 ---
 
 <div class="text-center my-20 w-full">
@@ -10,9 +25,29 @@ const {title, buttonTitle} = Astro.props;
     {title.toUpperCase()}
   </h2>
   <div class="grid md:grid-cols-3 w-11/12 mx-auto gap-5 my-10">
-    <Card />
-    <Card style="xs:hidden" />
-    <Card style="xs:hidden" />
+    {
+      data.map((product: any, index: any) => {
+        if (index == 0 || index == 1) {
+          return (
+            <Card
+              title={product.title}
+              price={product.price}
+              sku={product.sku}
+              subcategory={product.SUBCATEGORY}
+              style="xs:hidden"
+            />
+          );
+        } else if (index == 2) {
+          return (
+            <Card
+              title={product.title}
+              price={product.price}
+              sku={product.sku}
+            />
+          );
+        }
+      })
+    }
   </div>
   <a
     href="#"
