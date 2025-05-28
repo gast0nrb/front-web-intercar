@@ -36,7 +36,6 @@ const getProductByCategories = async () => {
 		apiUrl += `/category/1/products?page=0`;
 	}
 	try {
-		console.log(apiUrl);
 		const fetchProducts = await fetch(apiUrl, {
 			method: "GET",
 			mode: "cors",
