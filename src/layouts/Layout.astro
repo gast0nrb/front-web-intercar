@@ -2,8 +2,8 @@
 import "../styles/global.css"
 import Footer from "../components/home/Footer.astro"
 import Header from "../components/home/Header"
-import Finder from "../components/home/Finder.astro"
 import Nav from "../components/home/Nav"
+import Finder from "../components/home/Finder"
 ---
 
 
@@ -18,7 +18,7 @@ import Nav from "../components/home/Nav"
 	</head>
 	<body class="font-display">
 			<Header/>
-			<Finder/>
+			<Finder client:load/>
 			<Nav client:load/>
 			<article>
 				<slot/>
