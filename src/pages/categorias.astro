@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Order from "../components/category/Order.astro";
+import Order from "../components/category/Order"
 import Pagination from "../components/Pagination.astro";
 import Card from "../components/Card.astro";
 
@@ -50,7 +50,7 @@ const data = await getProductByCategories();
 ---
 
 <Layout>
-	<Order name="Ampolletas" />
+	<Order idCategory={id} client:load/>
 	<div class="mb-10 mt-10">
 		<div class="grid md:grid-cols-3 w-11/12 mx-auto gap-10">
 			{data.map((p: any) => <Card sku={p.sku} title={p.title}, price={p.price} subcategory={p.SUBCATEGORY}/>)}

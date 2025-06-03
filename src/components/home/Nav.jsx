@@ -16,7 +16,7 @@ const Nav = () => {
                     <li className="lista"><a href="/#contacto">Contacto</a></li>
                     <li className="lista"><a href="/#sucursales">Sucursales</a></li>
                     <li className="lista"><a href="/busqueda">Ofertas</a></li>
-                    <li className="lista"><a href="/categorias">Categorias</a></li>
+                    <li className="lista"><a href="/categorias?filter=1&id=1&page=0">Categorias</a></li>
                 </ul>
 			</nav>
 			

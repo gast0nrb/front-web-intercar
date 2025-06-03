@@ -1,8 +1,9 @@
 ---
-import Order from "../components/category/Order.astro";
+import Order from "../components/category/Order";
 import Layout from "../layouts/Layout.astro";
 import Pagination from "../components/Pagination.astro";
 import Card from "../components/Card.astro";
+import NamePage from "../components/category/NamePage.astro";
 
 let apiUrl = "http://localhost:8080/api/intercar"; //Url de base
 const rgx = /[?&]/; //Regex que filtra los diferentes parametros en el req del cliente
@@ -46,7 +47,8 @@ console.log(data)
 ---
 
 <Layout>
-<Order name="Mi busqueda"/>
+<Order client:load/>
+<NamePage name={text}/>
 	<div class="mb-10 mt-10">
 		<div class="grid md:grid-cols-3 w-11/12 mx-auto gap-10">
 			{data.map((p: any) => <Card sku={p.sku} title={p.title}, price={p.price} subcategory={p.SUBCATEGORY}/>)}
