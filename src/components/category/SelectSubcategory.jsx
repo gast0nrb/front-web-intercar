@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const SelectSubcategory = ({ url, name, setCurrentValue }) => {
+const SelectSubcategory = ({ url, name, setCurrentValue, changeSubcategories }) => {
   const [data, setData] = useState([]);
   useEffect(() => {
     async function fetchData() {
@@ -19,8 +19,9 @@ const SelectSubcategory = ({ url, name, setCurrentValue }) => {
     <div id="select-subcategory" class="">
       <h3 class="text-xs ml-3 text-nowrap font-black">{name}</h3>
       <select
-        class="md:w-11/12 xs:w-full text-center drop-shadow-xl rounded-sm text-xs bg-neutral-700 text-neutral-100 font-semibold ml-3"
-        onChange={(e)=> setCurrentValue(e.target.value)}
+        className={`md:w-11/12 xs:w-full text-center drop-shadow-xl rounded-sm text-xs font-semibold ml-3 ${changeSubcategories ?'bg-neutral-500 text-neutral-400' : 'bg-neutral-700 text-neutral-100 '}`}
+        onChange={(e) => setCurrentValue(e.target.value)}
+        disabled={changeSubcategories}
       >
         {
           data.map((val) => <option value={val.id}>{val.name}</option>)
