@@ -55,6 +55,6 @@ const data = await getProductByCategories();
 		<div class="grid md:grid-cols-3 w-11/12 mx-auto gap-10">
 			{data.map((p: any) => <Card sku={p.sku} title={p.title}, price={p.price} subcategory={p.SUBCATEGORY}/>)}
 		</div>
-		<Pagination />
+		<Pagination pages={data.length} />
 	</div>
 </Layout>

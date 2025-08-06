@@ -1,9 +1,26 @@
+import { useEffect, useState } from "react";
 const Sucursal = ({ title, phone, addres, display, id, setDisplay }) => {
+  const [photo, setPhoto] = useState("");
+  const getPhoto = async () => {
+    try{
+      const photo = await fetch(`http://localhost:8080/api/intercar/branch/${id}/photo`);
+      const photoUrl = await photo.blob();
+      setPhoto(URL.createObjectURL(photoUrl));
+    }catch (error) {
+      console.error("Error fetching photo:", error);
+      setPhoto("/image.png"); // Fallback image in case of error
+    }
+  }
+  useEffect(() => {
+    (async () => {
+      await getPhoto();
+    })();
+  }, []);
   return (
     <div class="text-center">
       <div class="bg-neutral-100 drop-shadow-xl flex-wrap p-0.5">
         <div class="" id="img-sucursal rounded-xs">
-          <img class="rounded-t-xs" src="/image.png" alt="" />
+          <img class="rounded-t-xs" src={photo} alt="" />
         </div>
         <div
           class="text-center xs:text-xs md:text-sm border-b-2 border-orange-500 mb-1"
@@ -46,7 +63,7 @@ const Sucursal = ({ title, phone, addres, display, id, setDisplay }) => {
         onClick={(e) => setDisplay(-1)}
         hidden={display == id ? false : true}
       >
-        <img className="w-5" src="/collapse.svg" alt="" />
+        <img className="w-5" src="/collapse.svg" alt=""  />
       </button>
     </div>
   );

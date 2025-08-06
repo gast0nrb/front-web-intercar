@@ -12,7 +12,9 @@ const imageUrl = `http://localhost:8080/api/intercar/products/${sku}/photo`;
 >
   <a href={`/producto/${sku}`}>
     <div class="img">
-      <Image src={imageUrl} alt={"product-image"} width={500} height={600} crossorigin={"anonymous"}/>
+      <Image src={imageUrl} alt={"product-image"}
+      class="w-full h-full object-cover rounded-tl-xs"
+       width={500} height={600} crossorigin={"anonymous"}/>
     </div>
   </a>
   <div class="desc-section group-hover:p-0 text-neutral-600">

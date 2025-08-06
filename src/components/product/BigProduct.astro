@@ -1,21 +1,6 @@
 ---
-const product = {
-  sku: "310303909",
-  title: "Soy un producto random",
-  price: 10500,
-  discount: 0,
-  description:
-    "Soy un producto random, esta es mi descripcion, tengo varios atributos que quiero que como cliente conozcas, gracias por leerme",
-  category: {
-    id: 1,
-    name: "TEST_CATEGORY",
-    subcategory: {
-      id: 1,
-      name: "TEST_SUBCATEGORY",
-    },
-  },
-};
 const { url } = Astro.props;
+import {Image} from 'astro:assets';
 const getProduct = async()=> {
   try {
     const getData = await fetch(url, {method : 'GET', mode: 'cors' });
@@ -24,7 +9,6 @@ const getProduct = async()=> {
   }catch(err) {return err}
 }
 const data = await getProduct();
-console.log(data)
 ---
 
 <div
@@ -34,7 +18,14 @@ console.log(data)
     <p class="bg-neutral-900 text-neutral-300 pl-3 rounded-tl-xs">
       SKU: {data.sku}
     </p>
-    <img class="w-full" src="/defaultFile.png" alt="" />
+    <Image
+      src={`http://localhost:8080/api/intercar/products/${data.sku}/photo`}
+      alt="product-image"
+      width={500}
+      height={600}
+      crossorigin={"anonymous"}
+      class="w-full h-full object-cover rounded-tl-xs"
+    />
   </div>
   <div class="bg-neutral-100 drop-shadow-lg" id="descripcion">
     <div class="title">

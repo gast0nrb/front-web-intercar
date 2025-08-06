@@ -1,12 +1,12 @@
 ---
-const {name} = Astro.props;
+const {name, pages} = Astro.props;
 ---
 
 <div class="mt-10 w-full">
   <h2
     class="font-bold xs:text-xl md:text-2xl tracking-widest bg-neutral-900 w-fit mx-auto px-2 rounded-sm text-neutral-200 border-b-1 border-orange-500 xs:mx-2 md:mx-auto mb-0.5"
   >
-    RESULTADOS PARA: <span class="text-nowrap text-orange-400">
+    <span class="text-orange-400">{pages}</span> RESULTADOS PARA: <span class="text-nowrap text-orange-400">
         {name.toUpperCase()}</span>
   </h2>
 </div>
