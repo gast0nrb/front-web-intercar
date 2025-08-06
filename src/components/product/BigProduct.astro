@@ -50,14 +50,14 @@ const data = await getProduct();
       <h3 class="bg-neutral-200 font-bold">CATEGORIA</h3>
       <a
         class="underline text-orange-300 hover:text-orange-500"
-        href="/categorias">{data.SUBCATEGORY.CATEGORY.name.toLowerCase()}</a
+        href={`/categorias?filter=0&id=${data.SUBCATEGORY.CATEGORY.id}&page=0`}>{data.SUBCATEGORY.CATEGORY.name.toLowerCase()}</a
       >
     </div>
     <div class="text-center" id="categorias">
       <h3 class="bg-neutral-200 font-bold">SUBCATEGORIA</h3>
       <a
         class="underline text-orange-300 hover:text-orange-500"
-        href="/categorias">{data.SUBCATEGORY.name.toLowerCase()}</a
+        href={`/categorias?filter=1&id=${data.SUBCATEGORY.id}&page=0`}>{data.SUBCATEGORY.name.toLowerCase()}</a
       >
     </div>
   </div>

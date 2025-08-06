@@ -1,5 +1,4 @@
 ---
-import Order from "../components/category/Order";
 import Layout from "../layouts/Layout.astro";
 import Pagination from "../components/Pagination.astro";
 import Card from "../components/Card.astro";
@@ -31,7 +30,6 @@ const getProductByText = async () => {
 		apiUrl += `/products?page=0`;
 	}
 	try {
-		console.log(apiUrl);
 		const fetchProducts = await fetch(apiUrl, {
 			method: "GET",
 			mode: "cors",
@@ -43,6 +41,7 @@ const getProductByText = async () => {
 	}
 };
 const data = await getProductByText();
+console.log(data);
 ---
 
 <Layout>
