@@ -7,7 +7,7 @@ const Nav = () => {
 <h1 class="font-[Rajdhani] block xs:text-3xl md:text-5xl lg:text-6xl font-extrabold uppercase tracking-wide xs:text-zinc-800 text-shadow-xs text-shadow-orange-300">
 INTERCAR CHILE SPA
 </h1>
-<p class="font-[Rajdhani] block text-xs my-auto font-extrabold uppercase tracking-wide text-zinc-700 text-shadow-xs text-shadow-orange-200">
+<p class="font-[Rajdhani] block text-xs my-auto font-extrabold uppercase tracking-wide text-zinc-700 xs:text-shadow-xs md:text-lg  text-shadow-orange-200">
     VENTAS DE ACCESORIOS y REPUESTOS AUTOMOTRICES
 </p>
         </div>

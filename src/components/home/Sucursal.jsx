@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 const Sucursal = ({ title, phone, addres, display, id, setDisplay }) => {
   const [photo, setPhoto] = useState("");
   const getPhoto = async () => {
-    try{
+    try {
       const photo = await fetch(`http://localhost:8080/api/intercar/branch/${id}/photo`);
       const photoUrl = await photo.blob();
       setPhoto(URL.createObjectURL(photoUrl));
-    }catch (error) {
+    } catch (error) {
       console.error("Error fetching photo:", error);
       setPhoto("/image.png"); // Fallback image in case of error
     }
@@ -17,13 +17,13 @@ const Sucursal = ({ title, phone, addres, display, id, setDisplay }) => {
     })();
   }, []);
   return (
-    <div class="text-center">
+    <div class="text-center group">
       <div class="bg-neutral-100 drop-shadow-xl flex-wrap p-0.5">
         <div class="" id="img-sucursal rounded-xs">
           <img class="rounded-t-xs" src={photo} alt="" />
         </div>
         <div
-          class="text-center xs:text-xs md:text-sm border-b-2 border-orange-500 mb-1"
+          class="text-center xs:text-xs md:text-sm mb-1"
           id="title-sucursal"
         >
           <h3 class="overflow-hidden text-ellipsis text-nowrap font-bold bg-neutral-900 text-neutral-200 px-0.5">
@@ -50,7 +50,7 @@ const Sucursal = ({ title, phone, addres, display, id, setDisplay }) => {
           </div>
         </div>
         <button
-          class="text-neutral-500 hover:text-black border-x-2 duration-150 border-transparent hover:border-orange-500 block mx-auto text-xs w-fit mb-2 px-2 bg-neutral-200 drop-shadow-lg"
+          class="text-neutral-500 hover:text-black border-x-2 duration-150 border-transparent group-hover:border-orange-500 block mx-auto text-xs w-fit mb-2 px-2 bg-neutral-200 drop-shadow-lg"
           onClick={(e) => setDisplay(id)}
           hidden={display == id ? true : false}
         >
@@ -63,7 +63,7 @@ const Sucursal = ({ title, phone, addres, display, id, setDisplay }) => {
         onClick={(e) => setDisplay(-1)}
         hidden={display == id ? false : true}
       >
-        <img className="w-5" src="/collapse.svg" alt=""  />
+        <img className="w-5" src="/collapse.svg" alt="" />
       </button>
     </div>
   );
