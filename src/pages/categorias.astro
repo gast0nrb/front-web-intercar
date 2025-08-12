@@ -41,7 +41,7 @@ const getProductByCategories = async () => {
 			mode: "cors",
 		});
 		const jsonProducts = await fetchProducts.json();
-		return jsonProducts.data;
+		return jsonProducts;
 	} catch (err) {
 		return err;
 	}
@@ -52,9 +52,9 @@ const data = await getProductByCategories();
 <Layout>
 	<Order idCategory={id} filter={filter} apiUrl={apiUrl} client:load/>
 	<div class="mb-10 mt-10">
-		<div class="grid md:grid-cols-3 w-11/12 mx-auto gap-10">
-			{data.map((p: any) => <Card sku={p.sku} title={p.title}, price={p.price} subcategory={p.SUBCATEGORY}/>)}
+		<div class="grid xs:grid-cols-2 md:grid-cols-3 w-11/12 mx-auto gap-10">
+			{data.data.map((p: any) => <Card sku={p.sku} title={p.title}, price={p.price} subcategory={p.SUBCATEGORY}/>)}
 		</div>
-		<Pagination pages={data.length} />
+		<Pagination currentPage={page} url={`${Astro.request.url}`} pages={data.length} filter={filter} id={id} />
 	</div>
 </Layout>

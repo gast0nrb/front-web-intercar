@@ -10,7 +10,7 @@ const Finder = () => {
       id="form-busqueda"
     >
       <input
-        class="text-center md:w-6/12 xs:w-6/12 rounded-t-xs drop-shadow-sm border-b-1 border-orange-500 bg-neutral-50 px-1 text-black text-sm"
+        class="text-center md:w-6/12 xs:w-6/12 rounded-t-xs drop-shadow-sm border-b-1 border-orange-500 bg-neutral-50 px-1 text-black xs:text-xs md:text-sm"
         type="text"
         placeholder=" ¿Que buscas hoy? "
         name="text-finder"

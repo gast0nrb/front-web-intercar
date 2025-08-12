@@ -1,5 +1,5 @@
 ---
-const {pages} = Astro.props;
+const { pages, url, filter, id, text, currentPage } = Astro.props;
 const pageOptions = [];
 if (!pages || pages <= 0) {
     pageOptions.push(1); // Default to one page if no pages are provided or if pages is 0
@@ -7,12 +7,32 @@ if (!pages || pages <= 0) {
     const totalPages = Math.ceil(pages / 10); // Assuming each page shows 10 items
     pageOptions.push(...Array.from({ length: totalPages }, (_, i) => i + 1));
 }
-
+const urlPagination = url.substring(0, url.lastIndexOf("&"));
 ---
-<select class=" flex mx-auto w-fit bg-neutral-200 px-3 rounded-xs text-center text-black mt-10">
-    {
-        pageOptions.map((page) => (
-            <option value={page}>{page}</option>
-        ))
-    }
-</select>
+
+<form action={urlPagination} method="GET">
+    <select
+        name="page"
+        class="flex mx-auto w-fit bg-neutral-200 px-3 rounded-xs text-center text-black mt-10"
+        onchange="this.form.submit()"
+    >
+        {
+            pageOptions.map((page) => {
+                return (
+                    // Adjusting the value to be zero-based for the backend
+                    // Assuming the first page is 0, second is 1, etc.
+                    // If the currentPage is 0-based, we need to subtract 1 from page
+                    // If the currentPage is 1-based, we can use page directly
+                    // Here we assume currentPage is 1-based, so we subtract 1 for the option value
+                    // If currentPage is 0-based, we can use page directly
+                    <option selected={page -1 == currentPage} value={page - 1}>
+                        {page}
+                    </option>
+                );
+            })
+        }
+    </select>
+    {text && <input type="text" name="text" value={text} hidden />}
+    {filter && <input type="text" name="filter" value={filter} hidden />}
+    {id && <input type="text" name="id" value={id} hidden />}
+</form>

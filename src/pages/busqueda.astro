@@ -35,7 +35,7 @@ const getProductByText = async () => {
 			mode: "cors",
 		});
 		const jsonProducts = await fetchProducts.json();
-		return jsonProducts.data;
+		return jsonProducts;
 	} catch (err) {
 		return err;
 	}
@@ -46,10 +46,10 @@ const data = await getProductByText();
 <Layout>
 <NamePage name={text} pages={data.length}/>
 	<div class="mb-10 mt-10 ">
-		<div class="grid md:grid-cols-3 w-11/12 mx-auto gap-10">
-			{data.map((p: any) => <Card sku={p.sku} title={p.title}, price={p.price} subcategory={p.SUBCATEGORY}/>)}
+		<div class="grid xs:grid-cols-2 md:grid-cols-3 w-11/12 mx-auto gap-10">
+			{data.data.map((p: any) => <Card sku={p.sku} title={p.title}, price={p.price} subcategory={p.SUBCATEGORY}/>)}
 		</div>
-		<Pagination pages={data.length}/>
+		<Pagination currentPage={page} text={text} pages={data.length} url={`${Astro.request.url}`}/>
 	</div>
 
 </Layout>
