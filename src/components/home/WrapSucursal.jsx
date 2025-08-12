@@ -21,7 +21,7 @@ const WrapSucursal = () => {
   }, [])
   return (
     <section className="w-11/12 mx-auto my-20" id="sucursales">
-      <h2 className="text-neutral-100 tracking-widest rounded-sm border-x-4 border-orange-500 px-2 bg-neutral-900 w-fit mx-auto">
+      <h2 className="text-neutral-200 tracking-widest rounded-sm border-x-4 border-orange-500 px-2 bg-neutral-900 w-fit mx-auto text-lg font-semibold mb-3">
         SUCURSALES
       </h2>
       <h3 className="font-bold">Sucursales en Santiago</h3>
