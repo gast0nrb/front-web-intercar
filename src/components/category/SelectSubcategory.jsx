@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const SelectSubcategory = ({ url, name, setApiUrl }) => {
+const SelectSubcategory = ({ url, name, setApiUrl, currentSubcategory }) => {
   const [data, setData] = useState([]);
   useEffect(() => {
     async function fetchData() {
@@ -26,7 +26,7 @@ const SelectSubcategory = ({ url, name, setApiUrl }) => {
         }}
       >
         {
-          data.map((val) => <option value={val.id}>{val.name}</option>)
+          data.map((val) => <option selected={val.id == currentSubcategory} value={val.id}>{val.name}</option>)
         }
       </select>
       {

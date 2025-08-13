@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const SelectCategory = ({ url, name, setApiUrl}) => {
+const SelectCategory = ({ url, name, setApiUrl, currentCategory}) => {
   const [data, setData] = useState([]);
   useEffect(() => {
     async function fetchData() {
@@ -26,7 +26,7 @@ const SelectCategory = ({ url, name, setApiUrl}) => {
         }}
       >
         {
-          data.map((val) => <option value={val.id}>{val.name}</option>)
+          data.map((val) => <option selected={val.id == currentCategory} value={val.id}>{val.name}</option>)
         }
       </select>
       {

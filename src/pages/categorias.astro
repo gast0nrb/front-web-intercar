@@ -47,14 +47,23 @@ const getProductByCategories = async () => {
 	}
 };
 const data = await getProductByCategories();
+let subcategoryId = ""
+let categoryId = ""
+if(data.success && data.subcategoryId){
+	subcategoryId = data.subcategoryId
+	categoryId = data.data[0]?.categoryId || 1
+}else {
+	categoryId = data.categoryId
+	subcategoryId = data.data[0]?.subcategoryId || 1
+}
 ---
 
 <Layout>
-	<Order idCategory={id} filter={filter} apiUrl={apiUrl} client:load/>
+	<Order idSubCategory={subcategoryId} idCategory={categoryId} filter={filter} apiUrl={apiUrl} client:load/>
 	<div class="mb-10 mt-10">
 		<div class="grid xs:grid-cols-2 md:grid-cols-3 w-11/12 mx-auto gap-10">
 			{data.data.map((p: any) => <Card sku={p.sku} title={p.title}, price={p.price} subcategory={p.SUBCATEGORY}/>)}
 		</div>
-		<Pagination currentPage={page} url={`${Astro.request.url}`} pages={data.length} filter={filter} id={id} />
+		<Pagination currentPage={page} url={`${Astro.request.url}`} pages={data.length} filter={filter} id={categoryId} />
 	</div>
 </Layout>

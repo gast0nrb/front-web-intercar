@@ -35,11 +35,11 @@ const Sucursal = ({ title, phone, addres, display, id, setDisplay }) => {
           hidden={display == id ? false : true}
         >
           <div class="grid grid-cols-1 text-center">
-            <p class="font-bold">Direccion</p>
+            <p class="font-extrabold underline">Direccion</p>
             <p>{addres}</p>
           </div>
           <div class="text-center">
-            <p class="font-bold">Contacto</p>
+            <p class="font-extrabold underline">Contacto</p>
             <p>{phone}</p>
           </div>
           <div class="text-center pb-3">
