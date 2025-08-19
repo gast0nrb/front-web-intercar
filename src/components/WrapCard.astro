@@ -24,6 +24,11 @@ const data = await getProducts();
   >
     {title.toUpperCase()}
   </h2>
+  {
+    (!data || !Array.isArray(data) || data.length === 0) ? (
+      <p class="text-neutral-500">Problemas para obtener información</p>
+    ) : (
+
   <div class="grid md:grid-cols-3 w-11/12 mx-auto gap-5 my-10">
     {
       data.map((product: any, index: any) => {
@@ -49,6 +54,8 @@ const data = await getProducts();
       })
     }
   </div>
+  )
+  }
   <a
     href="/ofertas"
     class="bg-neutral-200 px-2 rounded-sm block my-4 xs:w-1/2 md:w-3/12 mx-auto text-sm text-neutral-600 hover:text-black border-x-2 border-orange-500"

@@ -41,15 +41,21 @@ const getProductByText = async () => {
 	}
 };
 const data = await getProductByText();
+console.log(data)
 ---
 
 <Layout>
+{
+	(data.success || Array.isArray(data.data) || data.length > 0) ? (
 <NamePage name={text} pages={data.length}/>
-	<div class="mb-10 mt-10 ">
-		<div class="grid xs:grid-cols-2 md:grid-cols-3 w-11/12 mx-auto gap-10">
-			{data.data.map((p: any) => <Card sku={p.sku} title={p.title}, price={p.price} subcategory={p.SUBCATEGORY}/>)}
+		<div class="mb-10 mt-10 ">
+			<div class="grid xs:grid-cols-2 md:grid-cols-3 w-11/12 mx-auto gap-10">
+				{data.data.map((p: any) => <Card sku={p.sku} title={p.title}, price={p.price} subcategory={p.SUBCATEGORY}/>)}
+			</div>
+			<Pagination currentPage={page} text={text} pages={data.length} url={`${Astro.request.url}`}/>
 		</div>
-		<Pagination currentPage={page} text={text} pages={data.length} url={`${Astro.request.url}`}/>
-	</div>
-
+	) : (
+		<p class="text-center mt-10 text-zinc-500">Problemas cargando la información (productos)...</p>
+	)
+}
 </Layout>

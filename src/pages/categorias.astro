@@ -49,16 +49,24 @@ const getProductByCategories = async () => {
 const data = await getProductByCategories();
 let subcategoryId = ""
 let categoryId = ""
-if(data.success && data.subcategoryId){
-	subcategoryId = data.subcategoryId
-	categoryId = data.data[0]?.categoryId || 1
+if(data.success || Array.isArray(data.data)) {
+	//Si el fetch fue exitoso y data es un array, asignamos los valores de subcategoryId y categoryId
+	//Si no, asignamos los valores por defecto
+if(data.success && data?.subcategoryId){
+	subcategoryId = data?.subcategoryId
+	categoryId = data?.data[0]?.categoryId || 1
 }else {
-	categoryId = data.categoryId
-	subcategoryId = data.data[0]?.subcategoryId || 1
+	categoryId = data?.categoryId
+	subcategoryId = data?.data[0]?.subcategoryId || 1
 }
+}
+
 ---
 
 <Layout>
+	{
+		(data.success || Array.isArray(data.data)) ?
+		(
 	<Order idSubCategory={subcategoryId} idCategory={categoryId} filter={filter} apiUrl={apiUrl} client:load/>
 	<div class="mb-10 mt-10">
 		<div class="grid xs:grid-cols-2 md:grid-cols-3 w-11/12 mx-auto gap-10">
@@ -66,4 +74,8 @@ if(data.success && data.subcategoryId){
 		</div>
 		<Pagination currentPage={page} url={`${Astro.request.url}`} pages={data.length} filter={filter} id={categoryId} />
 	</div>
+	)  :
+	<p class="text-center mt-10 font-zinc-500">Problemas cargando la información (productos)...</p>
+	<a href="/" class="block text-center p-1 bg-neutral-800 w-fit mx-auto rounded-xs text-zinc-500 hover:text-white">Volver al inicio</a>
+	}
 </Layout>
