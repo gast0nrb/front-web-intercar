@@ -4,7 +4,7 @@ const Nav = () => {
     const [show, setShow] = useState(false);
     return (
 	<nav class="w-full bg-neutral-800 py-1">
-				<button class="mx-auto flex text-white font-semibold tracking-widest"
+				<button className="mx-auto flex text-white font-semibold tracking-widest"
                 onClick={(e)=> setShow(!show)}>
 					Menu
 					<img src="/menu.svg" alt="menu-img" class="w-6"/>

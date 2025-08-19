@@ -17,9 +17,9 @@ const SelectCategory = ({ url, name, setApiUrl, currentCategory}) => {
 
   return (
     <div id="select-subcategory" class="">
-      <h3 class="text-xs ml-3 text-nowrap font-black">{name}</h3>
+      <h3 className="text-xs ml-3 text-nowrap font-black">{name}</h3>
       <select
-        class="md:w-11/12 xs:w-full text-center drop-shadow-xl rounded-sm text-xs bg-neutral-700 text-neutral-100 font-semibold ml-3"
+        className="md:w-11/12 xs:w-full text-center drop-shadow-xl rounded-sm text-xs bg-neutral-700 text-neutral-100 font-semibold ml-3"
         onChange={(e)=> {
           /*Cambiar la url del form y comparar si es igual a la actual*/
           setApiUrl(`http://localhost:4321/categorias?filter=0&id=${e.target.value}&page=0`) 
