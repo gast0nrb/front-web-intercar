@@ -1,14 +1,17 @@
 ---
 import Card from "./Card.astro";
-const { title, buttonTitle, url="http://localhost:8080/api/intercar/onsale/products?page=0" } = Astro.props;
+import Problems from "./home/Problems";
+const {
+  title,
+  buttonTitle,
+  url = "http://localhost:8080/api/intercar/onsale/products?page=0",
+} = Astro.props;
 const getProducts = async () => {
   try {
-    const getInfo = await fetch(
-      url,{
-        mode: "cors",
-        method: "GET",
-      },
-    );
+    const getInfo = await fetch(url, {
+      mode: "cors",
+      method: "GET",
+    });
     const jsonInfo = await getInfo.json();
     return jsonInfo.data;
   } catch (err) {
@@ -23,38 +26,28 @@ const data = await getProducts();
     class="my-4 text-lg tracking-widest font-bold bg-neutral-900 text-neutral-300 border-r-2 border-l-2 border-orange-500 w-fit px-2 mx-auto"
   >
     {title.toUpperCase()}
+    <img src="/sale.svg" alt="offer-svg" class="inline-block w-6 h-6 ml-1" />
   </h2>
   {
-    (!data || !Array.isArray(data) || data.length === 0) ? (
-      <p class="text-neutral-500">Problemas para obtener información</p>
+    !data || !Array.isArray(data) || data.length === 0 ? (
+      <Problems />
     ) : (
-
-  <div class="grid md:grid-cols-3 w-11/12 mx-auto gap-5 my-10">
-    {
-      data.map((product: any, index: any) => {
-        if (index == 0 || index == 1) {
-          return (
-            <Card
-              title={product.title}
-              price={product.price}
-              sku={product.sku}
-              subcategory={product.SUBCATEGORY}
-              style="xs:hidden"
-            />
-          );
-        } else if (index == 2) {
-          return (
-            <Card
-              title={product.title}
-              price={product.price}
-              sku={product.sku}
-            />
-          );
-        }
-      })
-    }
-  </div>
-  )
+      <div class="grid grid-cols-3 w-11/12 mx-auto gap-5 my-10">
+        {data.map((product: any, index: any) => {
+            if(index >= 4){
+              return null;
+            }
+            return (
+              <Card
+                title={product.title}
+                price={product.price}
+                sku={product.sku}
+                subcategory={product.SUBCATEGORY}
+              />
+            );
+        })}
+      </div>
+    )
   }
   <a
     href="/ofertas"

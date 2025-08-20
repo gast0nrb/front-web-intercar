@@ -1,0 +1,52 @@
+---
+import Layout from "../../layouts/Layout.astro";
+const { slug } = Astro.params;
+
+if (slug === undefined) {
+    return Astro.redirect("/404");
+}
+---
+
+<Layout>
+    <section
+        class="bg-neutral-50 xs:w-11/12 lg:w-4/6 mx-auto my-4 rounded-lg shadow-lg p-10 text-sm"
+    >
+        <h2 class="text-center text-2xl font-bold">Filtrar por categoria</h2>
+        <form
+            id="categoriaForm"
+            action={`http://localhost:4321/categorias/1`}
+            method="post"
+            class="grid grid-cols-2 w-full bg-neutral-50 justify-center items-center gap-4 px-5"
+        >
+            <div>
+                <label for="categoria">Categoria:</label>
+                <select
+                    id="categoria"
+                    onchange="
+                const form = document.getElementById('categoriaForm');
+                form.action = `/categorias/${this.value}`"
+                    class="border-2 border-neutral-300 rounded p-2 w-full"
+                >
+                    <option value="1">Categoria 1</option>
+                    <option value="2">Categoria 2</option>
+                    <option value="3">Categoria 3</option>
+                </select>
+            </div>
+            <div>
+                <label for="subcategoria">Subcategoria:</label>
+                <select
+                    id="subcategoria"
+                    class="border-2 border-neutral-300 rounded p-2 w-full"
+                >
+                    <option value="1">Subcategoria 1</option>
+                    <option value="2">Subcategoria 2</option>
+                    <option value="3">Subcategoria 3</option>
+                </select>
+            </div>
+            <button
+                class="w-fit text-zinc-600 hover:text-black border-y-2 border-orange-200 hover:border-orange-500 duration-100 ml-auto"
+                type="submit">Aplicar</button
+            >
+        </form>
+    </section>
+</Layout>

@@ -11,12 +11,30 @@ const Nav = () => {
 				</button>
                 <ul 
                     className={`${show ? "h-full" : "h-0" } bg-white w-full z-10 overflow-hidden text-center`}>
-                    <li className="lista"><a href="/">Inicio</a></li>
-                    <li className="lista"><a href="/#nosotros">Quienes somos</a></li>
-                    <li className="lista"><a href="/#contacto">Contacto</a></li>
-                    <li className="lista"><a href="/#sucursales">Sucursales</a></li>
-                    <li className="lista"><a href="/ofertas">Ofertas</a></li>
-                    <li className="lista"><a href="/categorias?filter=1&id=1&page=0">Categorias</a></li>
+                    <li className="lista">
+                        <a href="/">Inicio</a>
+                            <img src="/home.svg" alt="home-svg" className="inline-block w-4 h-4 ml-1"/>
+                        </li>
+                    <li className="lista">
+                        <a href="/#nosotros">Quienes somos</a>
+                            <img src="/question.svg" alt="question-svg" className="inline-block w-4 h-4 ml-1"/>
+                        </li>
+                    <li className="lista">
+                        <a href="/#contacto">Contacto</a>
+                            <img src="/phone.svg" alt="question-svg" className="inline-block w-4 h-4 ml-1"/>
+                    </li>
+                    <li className="lista">
+                        <a href="/#sucursales">Sucursales</a>
+                            <img src="/sucursales.svg" alt="question-svg" className="inline-block w-4 h-4 ml-1"/>
+                    </li>
+                    <li className="lista">
+                        <a href="/ofertas">Ofertas</a>
+                            <img src="/sale.svg" alt="question-svg" className="inline-block w-4 h-4 ml-1"/>
+                    </li>
+                    <li className="lista">
+                        <a href="/categorias?filter=1&id=1&page=0">Categorias</a>
+                            <img src="/categories.svg" alt="question-svg" className="inline-block w-4 h-4 ml-1"/>
+                    </li>
                 </ul>
 			</nav>
 			

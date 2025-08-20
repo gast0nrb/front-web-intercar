@@ -29,7 +29,7 @@ const imageUrl = `http://localhost:8080/api/intercar/products/${sku}/photo`;
       </p>
       <div class="price group-hover:text-neutral-400">
         <p class="group-hover:text-neutral-300">
-          $ <span>{price}</span>
+          $ <span>{price.toLocaleString('es-CL')}</span>
         </p>
       </div>
       <div class="subcategory flex-wrap text-center">

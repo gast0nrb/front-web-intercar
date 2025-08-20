@@ -40,7 +40,7 @@ const data = await getProduct();
     </div>
     <div class="text-center" id="precios">
       <h3 class="bg-neutral-200 font-bold">VALORES</h3>
-      <p>${data.price}</p>
+      <p>${data.price.toLocaleString('es-CL')}</p>
     </div>
     <div class="text-center" id="precios">
       <h3 class="bg-neutral-200 font-bold">PORCENTAJE DESCUENTO</h3>
