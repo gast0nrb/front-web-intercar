@@ -1,18 +1,32 @@
+import Finder from './Finder';
+
 const Nav = () => {
   return (
-    <header className="text-center bg-neutral-100 mx-auto w-full">
-      <div className="md:py-5 xs:py-3 flex md:justify-between items-center xs:justify-center md:px-5">
+    <header className="bg-neutral-100 w-full mx-auto">
+      <div>
+        <nav className='w-full mb-2 bg-zinc-900 text-white py-1 px-2 text-xs'>
+          <ul className="flex gap-4 text-neutral-400">
+            <li className=''>
+              <a href="#" className="block hover:text-orange-500">Contacto
+              </a>
+            </li>
+            <li className=''>
+              <a href="#" className="block hover:text-orange-500">Sucursales
+              </a>
+            </li>
+            <li className=''>
+              <a href="#" className="block hover:text-orange-500">Nosotros
+              </a>
+            </li>
 
-      <a href="/"><img src="/logo.png" alt="" className="md:w-20 xs:w-12 mx-auto" /></a>
-        <div className="text-center my-auto">
-          <h1 className="font-[Rajdhani] block xs:text-3xl md:text-5xl lg:text-6xl font-extrabold uppercase tracking-wide xs:text-zinc-800 text-shadow-xs text-shadow-orange-300 text-nowrap">
-            INTERCAR CHILE SPA
-          </h1>
-          <p className="font-[Rajdhani] block text-xs my-auto font-extrabold uppercase text-zinc-700 xs:text-shadow-xs md:text-lg  text-shadow-orange-200 text-nowrap">
-            VENTA DE ACCESORIOS AUTOMOTRICES
-          </p>
-        </div>
-      <a href="/"><img src="/logo.png" alt="" className="md:w-20 xs:w-12 mx-auto" /></a>
+          </ul>
+        </nav>
+      </div>
+      <div className="flex gap-5 justify-between w-11/12 mx-auto items-center">
+        <h1 className="font-[Rajdhani] xs:text-xl md:text-3xl text-orange-600 drop-shadow-md">
+          <a href="/" className="">INTERCAR</a>
+        </h1>
+        <Finder />
       </div>
     </header>
   );

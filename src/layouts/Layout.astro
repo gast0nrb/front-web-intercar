@@ -3,7 +3,6 @@ import "../styles/global.css";
 import Footer from "../components/home/Footer.astro";
 import Header from "../components/home/Header";
 import Nav from "../components/home/Nav";
-import Finder from "../components/home/Finder";
 ---
 
 <!doctype html>
@@ -21,7 +20,6 @@ import Finder from "../components/home/Finder";
 	</head>
 	<body class="font-[Rajdhani] min-h-screen flex flex-col">
 		<Header />
-		<Finder client:load />
 		<Nav client:load />
 		<article>
 			<slot />
