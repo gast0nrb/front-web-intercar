@@ -2,7 +2,6 @@
 import "../styles/global.css";
 import Footer from "../components/home/Footer.astro";
 import Header from "../components/home/Header";
-import Nav from "../components/home/Nav";
 ---
 
 <!doctype html>
@@ -20,7 +19,6 @@ import Nav from "../components/home/Nav";
 	</head>
 	<body class="font-[Rajdhani] min-h-screen flex flex-col">
 		<Header />
-		<Nav client:load />
 		<article>
 			<slot />
 		</article>

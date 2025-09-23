@@ -4,9 +4,11 @@ import WrapCard from '../components/WrapCard.astro';
 import Quienes from '../components/home/Quienes.astro';
 import WrapSucursal from "../components/home/WrapSucursal"
 import Contact from '../components/home/Contact.astro';
+import Carousel from '../components/home/Carousel'
 ---
 
 <Layout>
+	<Carousel client:load/>
 	<WrapCard title="Productos en oferta" buttonTitle="Ver más"/>
 	<Quienes/>
 	<WrapSucursal client:load/>
