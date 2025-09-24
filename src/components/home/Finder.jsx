@@ -13,7 +13,7 @@ const Finder = () => {
         <input
           className="xs:w-2/4 md:w-2/3 xs:text-xs md:text-lg text-center border-1 border-zinc-300 hover:border-orange-500 rounded-sm px-2 focus:outline-none focus:ring-1 focus:ring-orange-400"
           type="text"
-          placeholder=" ¿Que buscas hoy? "
+          placeholder=" ¿Qué estás buscando? Headlights, H4, H7, Cubrevolantes "
           name="text-finder"
           id="text-product"
           required="true"

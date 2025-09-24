@@ -22,6 +22,7 @@ const WrapSucursal = () => {
   }, [])
   return (
     <section className="w-11/12 mx-auto my-20" id="sucursales">
+      Cambiar a anchors con cambio de sucursal y ruedita al seleccionado
       {
         (Array.isArray(sucursales) && sucursales.length > 0) ? (
           <>
