@@ -5,9 +5,11 @@ import Carousel from '../components/home/Carousel'
 ---
 
 <Layout>
-	<Carousel client:load/>
-	<div>barra chula</div>
-	<Carousel client:load/>
+	<Carousel borderBottom={false} client:load/>
+	<div class="div-gradient">
+		<p class="text-zinc-300 px-3 text-end">¡No te pierdas estás ofertas!</p>
+	</div>
+	<Carousel borderBottom={true} client:load/>
 	<WrapSucursal client:load/>
 </Layout>
 

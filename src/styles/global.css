@@ -23,7 +23,7 @@
     position: relative;
     height: 400px;
     width: 100%;
-    margin : 40px auto;
+    margin : auto;
 }
 
 @media screen and (max-width: 720px) {
@@ -93,4 +93,24 @@
     padding : 4px;
     cursor : pointer;
     z-index : 10;
+}
+
+/*Div gradient to separate carousels*/
+.div-gradient {
+  width: 100%;
+    height: 17px;
+    background: linear-gradient(
+        90deg,
+        #000000c0 0%,
+        #412002 50%,
+        #000000d3 90%
+    );
+    filter: brightness(1.08) contrast(1.1);
+    font-family : "Jersey 25", sans-serif;
+    font-size : 0.7rem;
+    line-height: -1vh;
+    color : #fff;
+        letter-spacing: 2px;
+        font-weight: bold;
+    
 }
