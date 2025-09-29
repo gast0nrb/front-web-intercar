@@ -52,12 +52,12 @@ const WrapSucursal = () => {
   const [sucursalId, setSucursalId] = useState(0);
   return (
     <section className="grid grid-cols-2 w-11/12 mx-auto my-10">
-      <h2 className="col-span-2 text-center bg-neutral-800 w-fit px-2 border-x-2 border-orange-400 text-zinc-200 mx-auto rounded-xs my-5">Nuestras sucursales</h2>
-      <Sucursal key={sucursalId} />
-      <article className="mx-auto text-center">
+      <h2 className="col-span-2 text-center bg-neutral-800 w-fit px-2 border-x-2 border-orange-400 text-zinc-200 mx-auto rounded-xs my-5 text-xl">Nuestras sucursales</h2>
+      <Sucursal key={sucursalId} sucursalName={sucursales.at(sucursalId)?.name}/>
+      <article className="mx-auto text-left md:text-lg xs:text-xs">
         <ul>
-          <CitySucursal esSantiago={true} sucursales={sucursales.filter((s)=> s.city.id == 1)}/>
-          <CitySucursal esSantiago={false} sucursales={sucursales.filter((s)=> s.city.id != 1)}/>
+          <CitySucursal sucursalId={sucursalId} setSucursalId={setSucursalId} esSantiago={true} sucursales={sucursales.filter((s)=> s.city.id == 1)}/>
+          <CitySucursal  sucursalId={sucursalId} setSucursalId={setSucursalId} esSantiago={false} sucursales={sucursales.filter((s)=> s.city.id != 1)}/>
         </ul>
       </article>
     </section>

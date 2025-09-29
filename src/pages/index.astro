@@ -5,11 +5,11 @@ import Carousel from '../components/home/Carousel'
 ---
 
 <Layout>
-	<Carousel borderBottom={false} client:load/>
+	<Carousel client:load/>
 	<div class="div-gradient">
 		<p class="text-zinc-300 px-3 text-end">¡No te pierdas estás ofertas!</p>
 	</div>
-	<Carousel borderBottom={true} client:load/>
+	<Carousel borderBottom={"border-2 border-zinc-50"} client:load/>
 	<WrapSucursal client:load/>
 </Layout>
 

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const Carousel = ({borderBottom}) => {
+const Carousel = ({borderBottom = ""}) => {
     const images = [
         { id: 1, src: "/waze.svg", alt: "Waze" },
         { id: 2, src: "/wsp.png", alt: "WSP" },
@@ -15,7 +15,7 @@ const Carousel = ({borderBottom}) => {
 
     return (
         <>
-        <div className={`carousel ${borderBottom ? "border-b-2 border-red-50" : ""}`}>
+        <div className={`carousel ${borderBottom}`}>
             <div className="carousel-inner">
                 <div className="carousel-item active">
                     <img src={images[currentIndex].src} alt={images[currentIndex].alt} />
