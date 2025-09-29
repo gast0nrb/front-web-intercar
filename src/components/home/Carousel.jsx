@@ -2,9 +2,9 @@ import { useState } from 'react';
 
 const Carousel = ({borderBottom = ""}) => {
     const images = [
-        { id: 1, src: "/waze.svg", alt: "Waze" },
-        { id: 2, src: "/wsp.png", alt: "WSP" },
-        { id: 3, src: "/cars.png", alt: "Cars" }
+        { id: 1, src: "/esparco-1.jpg", alt: "Waze" },
+        { id: 2, src: "/esparco-2.jpg", alt: "WSP" },
+        { id: 3, src: "/esparco-3.png", alt: "Cars" }
     ];
 
     //chequear que no sobrepase los valores limitantes y realizar la operación de sumar o restar, sino reiniciar.

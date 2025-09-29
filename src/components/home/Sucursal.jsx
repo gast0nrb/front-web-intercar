@@ -12,12 +12,12 @@ const Sucursal = ({ sucursalName }) => {
         </iframe>
       </div>
       <div className="text-center my-2 grid grid-cols-2 text-xs">
-        <h4 className="col-span-2 text-md">Viajar con</h4>
-        <div className="text-center mx-auto">
+        <h4 className="col-span-2 text-sm ">Viajar con</h4>
+        <div className="text-center mx-auto font-serif italic">
           <p>Waze</p>
           <a className="" href=""><img src="/waze.svg" alt="" className="w-6 mx-auto"/></a>
         </div>
-        <div className="text-center mx-auto">
+        <div className="text-center mx-auto font-serif italic">
           <p>Maps</p>
           <a className="" href=""><img src="/maps.png" alt="" className="w-5 mx-auto"/></a>
         </div>
