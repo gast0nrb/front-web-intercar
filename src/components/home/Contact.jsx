@@ -1,7 +1,8 @@
-export default function Contact() {
+export default function Contact({ showContact, setShowContact }) {
     return (
-        <section className="fixed bottom-1 right-3 z-20">
-            <button className="rounded-xl hover:scale-110 block mx-auto hover:bg-orange-400 mb-1 duration-150">
+        <section className={`fixed bottom-1 right-3 z-20 ${showContact ? "fixed" : "hidden"}`}>
+            <button className="rounded-xl hover:scale-110 block mx-auto hover:bg-orange-400 mb-1 duration-150"
+                onClick={(e) => setShowContact(false)}>
                 <img src="/close.svg" alt="close" className="w-5" />
             </button>
             <section className="text-xs w-fit bg-white rounded-sm text-center shadow-2xl opacity-95 border-orange-400">
@@ -23,20 +24,20 @@ export default function Contact() {
                     </label>
                     <label htmlFor="" className="flex flex-col mx-auto">
                         Correo electronico
-                        <input type="email" className="text-center mx-auto w-11/12 border-1 rounded-xs" placeholder="example@intercarchile.cl"/>
+                        <input type="email" className="text-center mx-auto w-11/12 border-1 rounded-xs" placeholder="example@intercarchile.cl" />
                     </label>
                     <label htmlFor="" className="flex flex-col mx-auto">
                         Nombre y apellido
-                        <input type="text" className="text-center w-11/12 mx-auto border-1 rounded-xs" placeholder="Michael Jordan"/>
+                        <input type="text" className="text-center w-11/12 mx-auto border-1 rounded-xs" placeholder="Michael Jordan" />
                     </label>
                     <label htmlFor="" className="flex flex-col mx-auto">
                         Rut (opcional)
-                        <input type="text" className="text-center w-11/12 mx-auto border-1 rounded-xs" placeholder="19183293-k"/>
+                        <input type="text" className="text-center w-11/12 mx-auto border-1 rounded-xs" placeholder="19183293-k" />
                     </label>
                     <label htmlFor="" className="flex flex-col mx-auto">
                         Comentarios
                         <textarea name="" id="" className="text-center w-12/12 mx-auto border-1 rounded-xs"
-                        placeholder="(opcional)"
+                            placeholder="(opcional)"
                         ></textarea>
                     </label>
                     <button type="submit" className="hover:opacity-100 opacity-70 bg-orange-500 w-fit mx-auto rounded-xs my-2 px-1">¡Contactar!</button>

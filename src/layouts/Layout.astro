@@ -20,12 +20,11 @@ import Contact from "../components/home/Contact";
 		<title>INTERCAR CHILE</title>
 	</head>
 	<body class="font-[Rajdhani] min-h-screen flex flex-col">
-		<Header />
+		<Header client:load/>
 		<Nav />
 		<article>
 			<slot />
 		</article>
-		<Contact/>
 		<Footer />
 	</body>
 </html>
