@@ -3,7 +3,7 @@ import Finder from './Finder';
 import Contact from './Contact';
 
 const Nav = () => {
-  const [showContact, setShowContact] = useState(true);
+  const [showContact, setShowContact] = useState(false);// Se despliega cuando lo clickean
   return (
     <>
     <header className="bg-neutral-100 w-full mx-auto">

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const Carousel = ({borderBottom = ""}) => {
+const Carousel = ({ borderBottom = "" }) => {
     const images = [
         { id: 1, src: "/esparco-1.jpg", alt: "Waze" },
         { id: 2, src: "/esparco-2.jpg", alt: "WSP" },
@@ -15,15 +15,16 @@ const Carousel = ({borderBottom = ""}) => {
 
     return (
         <>
-        <div className={`carousel ${borderBottom}`}>
-            <div className="carousel-inner">
-                <div className="carousel-item active">
-                    <img src={images[currentIndex].src} alt={images[currentIndex].alt} />
+            <div className={`carousel ${borderBottom}`}>
+                <div className="carousel-inner">
+                    <div className="carousel-item active">
+                        <img src={images[currentIndex].src} alt={images[currentIndex].alt} 
+                        className='w-full h-full object-fill'/>
+                    </div>
                 </div>
+                <button className="carouselPrev" onClick={handlePrev}>Anterior</button>
+                <button className="carouselNext" onClick={handleNext}>Siguiente</button>
             </div>
-            <button className="carouselPrev" onClick={handlePrev}>Anterior</button>
-            <button className="carouselNext" onClick={handleNext}>Siguiente</button>
-        </div>
         </>
     )
 }

@@ -3,7 +3,6 @@ import "../styles/global.css";
 import Footer from "../components/home/Footer.astro";
 import Header from "../components/home/Header";
 import Nav from "../components/home/Nav.astro"
-import Contact from "../components/home/Contact";
 ---
 
 <!doctype html>
@@ -22,7 +21,7 @@ import Contact from "../components/home/Contact";
 	<body class="font-[Rajdhani] min-h-screen flex flex-col">
 		<Header client:load/>
 		<Nav />
-		<article>
+		<article class="flex-1">
 			<slot />
 		</article>
 		<Footer />
