@@ -1,17 +1,27 @@
 ---
 async function getCategories() {
     try {
-        const res = await fetch(
-            "http://localhost:8080/api/intercar/categories",
+        const dataResponse = await fetch(
+            "http://localhost:8080/api/intercar/category?page=0",
             {
-                mode: "cors",
                 method: "GET",
-            },
-        );
-        const data = await res.json();
-        return data;
-    } catch (err) {
-        return err;
+                mode: "cors",
+                });
+                if(dataResponse.status == 404){
+                  console.log("plop")
+                  return {
+                  error : 'Ups, no pudimos cargar categorias',
+                  status : dataResponse.Response.status
+                  }
+                }
+                const data = await dataResponse.json();
+        return data
+        } catch (err) {
+        return {
+            error : true, 
+            dataError : err,
+            message : 'Error fetching categories'
+        }
     }
 }
 const categories = await getCategories();
@@ -19,7 +29,7 @@ const categories = await getCategories();
 
 <nav class="text-xs w-full flex bg-neutral-900 text-neutral-300 p-1">
     {
-        !categories.error ? (
+    categories.error ? (
             <ul class="justify-around xs:w-8/12 md:w-10/12">
                 <li>Ups, no pudimos cargar categorias :(</li>
             </ul>
@@ -28,9 +38,10 @@ const categories = await getCategories();
                 </a>
         ) : (
             <ul class="justify-around xs:w-8/12 md:w-2/3 flex">
-                {categories.data.map((category: any) => (
-                    <a href={`/categoria/${category.name.toLowerCase()}`}>
-                        <li class="hover:text-orange-500 duration-100 border-l-2 border-zinc-400">{category.name}</li>
+               {categories.data?.map((category: any, index : any) => (
+                (index > 2) ? null :
+                    <a class="overflow-hidden" href={`/categoria/${category.name.toLowerCase()}`}>
+                        <li class="hover:text-orange-500 duration-100 border-l-2 border-zinc-400 px-2">{category.name}</li>
                     </a>
                 ))}
             </ul>

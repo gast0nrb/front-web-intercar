@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 const Carousel = ({ borderBottom = "" }) => {
     const images = [
-        { id: 1, src: "/esparco-1.jpg", alt: "Waze" },
+        { id: 1, src: "/carousel-img-2.jpeg", alt: "Waze" },
         { id: 2, src: "/esparco-2.jpg", alt: "WSP" },
         { id: 3, src: "/esparco-3.png", alt: "Cars" }
     ];
