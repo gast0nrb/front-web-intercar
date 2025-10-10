@@ -40,7 +40,7 @@ const categories = await getCategories();
             <ul class="justify-around xs:w-8/12 md:w-2/3 flex">
                {categories.data?.map((category: any, index : any) => (
                 (index > 2) ? null :
-                    <a class="overflow-hidden" href={`/categoria/${category.name.toLowerCase()}`}>
+                    <a class="overflow-hidden" href={`/categorias/${category.id}`}>
                         <li class="hover:text-orange-500 duration-100 border-l-2 border-zinc-400 px-2">{category.name}</li>
                     </a>
                 ))}
