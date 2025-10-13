@@ -26,7 +26,7 @@ const WrapSucursal = () => {
         (error.error) ? 
          <h2 className="text-center text-orange-500 opacity-50">¡Ups! Tuvimos un error obteniendo las sucursales :(</h2>
         :
-    <section className="grid grid-cols-2 w-11/12 mx-auto my-10">
+    <section className="grid grid-cols-2 w-11/12 mx-auto my-10" id="sucursal-section">
       <h2 className="col-span-2 text-center bg-neutral-800 w-fit px-2 border-x-2 border-orange-400 text-zinc-200 mx-auto rounded-xs my-5 text-xl">Nuestras sucursales</h2>
       <Sucursal key={sucursalId} sucursalName={sucursales?.find((sc)=> sc.id == sucursalId)?.name}/>
       <article className="mx-auto text-left md:text-lg xs:text-xs">

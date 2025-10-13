@@ -3,7 +3,10 @@ import Finder from './Finder';
 import Contact from './Contact';
 
 const Nav = () => {
-  const [showContact, setShowContact] = useState(false);// Se despliega cuando lo clickean
+  const [showContact, setShowContact] = useState(false);/*
+         Se despliega el formulario de contacto cuando lo setean a true
+      */
+
   return (
     <>
     <header className="bg-neutral-100 w-full mx-auto">
@@ -11,15 +14,15 @@ const Nav = () => {
         <nav className='w-full bg-zinc-900 text-white py-1 px-2 text-xs'>
           <ul className="flex gap-4 text-neutral-400">
             <li className=''>
-              <a href="#" className="block hover:text-orange-500" onClick={(e)=> setShowContact(true)}>Contacto
+              <a href="#footer-page" className="block hover:text-orange-500" onClick={(e)=> setShowContact(true)}>Contacto
               </a>
             </li>
             <li className=''>
-              <a href="#" className="block hover:text-orange-500">Sucursales
+              <a href="/#sucursal-section" className="block hover:text-orange-500">Sucursales
               </a>
             </li>
             <li className=''>
-              <a href="#" className="block hover:text-orange-500">Nosotros
+              <a href="#footer-page" className="block hover:text-orange-500">Nosotros
               </a>
             </li>
           </ul>
