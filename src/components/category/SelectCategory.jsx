@@ -30,10 +30,13 @@ const SelectCategory = () => {
    }
 
    return (
+         <div class="text-left flex-1">
+         <label for="select-subcategory" class="text-sm text-left mb-1">Categorias</label>
          <select
+          name="select-subcategory"
           id="categoria"
-          className="p-2
-          rounded px-2 py-3 w-10/12
+          className="p-2 
+          rounded px-2 py-auto w-12/12
           duration-100
           text-center
           text-zinc-600
@@ -49,6 +52,7 @@ const SelectCategory = () => {
               ) 
             }
           </select>
+      </div>
          )
 };
 
