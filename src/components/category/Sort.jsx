@@ -1,7 +1,10 @@
 import SelectCategory from './SelectCategory'
 import SelectSubcategory from './SelectSubcategory'
+import {useState} from 'react';
 
-const Sort = () => {
+const Sort = ({categoryParam, subcategoryParam}) => {
+  const [currentCategory, setCurrentCategory] = useState(categoryParam);
+  const [currentSubcategory, setCurrentSubcategory] = useState(subcategoryParam);
    return (
     <section
         class=" xs:w-10/12 md:w-8/12 mx-10 my-8">
@@ -11,8 +14,8 @@ const Sort = () => {
             action={`http://localhost:4321/categorias/1`}
             method="post"
             class="flex w-10/12 gap-4 px-5 text-center py-2">
-               <SelectCategory/>
-               <SelectSubcategory/>
+               <SelectCategory currentCategory={currentCategory} setCurrentCategory={setCurrentCategory}/>
+               <SelectSubcategory currentCategory={currentCategory}/>
                <button
                    class="h-fit mt-auto py-1 px-3
                    rounded-sm

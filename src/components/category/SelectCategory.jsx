@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 
-const SelectCategory = () => {
+const SelectCategory = ({currentCategory, setCurrentCategory}) => {
   useEffect(()=> {
        async function fetchCategories(){
             try{
@@ -10,9 +10,9 @@ const SelectCategory = () => {
                mode : 'cors'
               });
                const data = await getCategories.json();
-               console.log(data)
                setCategories([...data.data])
             }catch(err){
+               setError(true);
                return {
                error: true,
                dataError : err,
@@ -48,7 +48,12 @@ const SelectCategory = () => {
          ">
             {
               categories?.map((ct)=> 
-                 <option>{ct?.name}</option>
+                 <option selected={ct?.id == currentCategory}
+                 name={ct.id}
+                 onChange={(e)=> {
+                     setCurrentCategory(e.target.value);
+                 }}
+                 key={ct?.id}>{ct?.name}</option>
               ) 
             }
           </select>

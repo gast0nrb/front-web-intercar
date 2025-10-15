@@ -23,16 +23,16 @@ const data = await getProducts();
 ---
 
 <div class="text-center my-20 w-full">
-  <h2
+   {
+    !data || !Array.isArray(data) || data.length === 0 ? (
+      <Problems />
+      ) : (
+ <h2
     class="my-4 text-lg tracking-widest font-bold bg-neutral-900 text-neutral-300 border-r-2 border-l-2 border-orange-500 w-fit px-2 mx-auto"
   >
     {title.toUpperCase()}
     <img src="/sale.svg" alt="offer-svg" class="inline-block w-6 h-6 ml-1" />
   </h2>
-  {
-    !data || !Array.isArray(data) || data.length === 0 ? (
-      <Problems />
-    ) : (
       <div class="grid grid-cols-3 w-11/12 mx-auto gap-5 my-10">
         {data.map((product: any, index: any) => {
             if(index >= 4){

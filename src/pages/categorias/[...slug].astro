@@ -1,12 +1,15 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Sort from '../../components/category/Sort'
+import WrapCard from '../../components/WrapCard.astro'
 const { slug } = Astro.params;
 
 if (slug === undefined) {
     return Astro.redirect("/404");
 }
+
 ---
 <Layout>
-   <Sort client:load/>    
+   <Sort client:load categoryParam={slug}/>    
+   <WrapCard title='Productos encontrados' buttonTitle="Ver ofertas"/>
 </Layout>
