@@ -35,9 +35,9 @@ const imageUrl = `http://localhost:8080/api/intercar/products/${sku}/photo`;
       <div class="subcategory flex-wrap text-center">
         <a
           class="text-xs underline text-orange-500 opacity-60 group-hover:opacity-100"
-          href={`/categorias/${subcategory?.fk_category}?subcategory=${subcategory?.id || 1}&page=0`}
+          href={`/categorias/${subcategory?.fk_category}&page=1`}
         >
-          VER MÁS {subcategory?.name.toUpperCase()}</a
+          VER MÁS {subcategory?.CATEGORY?.name.toUpperCase()}</a
         >
       </div>
     </div>

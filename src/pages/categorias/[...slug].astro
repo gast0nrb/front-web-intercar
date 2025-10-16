@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import FormDisplay from '../../components/category/FormDisplay'
 import CardSubcategory from '../../components/category/CardSubcategory.astro'
+
 const { slug } = Astro.params;//id category 
 
 //Get url params
@@ -11,8 +12,8 @@ const searchParams = url.searchParams;
 const sort = searchParams.get('sort') || 'id';
 
 if (slug === undefined) {
-    return Astro.redirect("/404");
-}
+   return Astro.redirect("/404")
+};
 
 async function getSubcategories(){
    try{
@@ -52,7 +53,7 @@ async function getSubcategories(){
 const subcategories = await getSubcategories();
 ---
 <Layout>
-   <FormDisplay client:load nameValue={"Categorias"} paramValue={slug} url={"http://localhost:8080/api/intercar/category"}/>
+   <FormDisplay client:load UrlQueryToSubcategory={""} nameValue={"Categorias"} paramValue={slug} url={"http://localhost:8080/api/intercar/category"}/>
    <section class="grid grid-cols-3 w-12/12 mx-auto px-5 gap-5">
       {
          subcategories.error ? <h3 class="opacity-50 w-12/12 text-nowrap">{subcategories.message}</h3> 

@@ -1,7 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro"
 import BigProduct from "../../components/product/BigProduct.astro"
-import WrapCard from "../../components/WrapCard.astro"
 const { slug } = Astro.params;
 
 if(slug === undefined){
@@ -12,5 +11,4 @@ if(slug === undefined){
 
 <Layout>
     <BigProduct url={`http://localhost:8080/api/intercar/products/${slug}`}>
-    <WrapCard title="Productos similares" buttonTitle="Ver más"/>
 </Layout> 

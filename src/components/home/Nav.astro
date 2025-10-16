@@ -33,9 +33,6 @@ const categories = await getCategories();
             <ul class="justify-around xs:w-8/12 md:w-10/12">
                 <li>Ups, no pudimos cargar categorias :(</li>
             </ul>
-                <a href="/categorias" class="hover:text-orange-500 border-l-2 border-orange-500 pl-2 duration-100 flex-grow text-center">
-                    Ver categorias
-                </a>
         ) : (
             <ul class="justify-around xs:w-8/12 md:w-2/3 flex">
                {categories.data?.map((category: any, index : any) => (
@@ -45,7 +42,7 @@ const categories = await getCategories();
                     </a>
                 ))}
             </ul>
-                <a href="/categorias" class="hover:text-orange-500 border-l-2 border-orange-500 pl-2 duration-100 flex-grow text-center">
+                <a href={`/categorias/${categories.data?.[0]?.id}`} class="hover:text-orange-500 border-l-2 border-orange-500 pl-2 duration-100 flex-grow text-center">
                     Ver categorias
                 </a>
         )

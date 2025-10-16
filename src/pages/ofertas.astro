@@ -2,7 +2,6 @@
 import Layout from "../layouts/Layout.astro";
 import Pagination from "../components/Pagination.astro";
 import Card from "../components/Card.astro";
-import NamePage from "../components/category/NamePage.astro";
 
 let apiUrl = "http://localhost:8080/api/intercar/onsale/products?page=0"; //Url de base
 const getOnSaleProduct = async () => {
@@ -24,7 +23,6 @@ const data = await getOnSaleProduct();
 <Layout>
 	{
 	(data.success || Array.isArray(data.data)) ? (
-<NamePage pages={data.length}/>
 	<div class="mb-10 mt-10 ">
 		<div class="grid md:grid-cols-3 w-11/12 mx-auto gap-10">
 			{data.data.map((p: any) => <Card sku={p.sku} title={p.title}, price={p.price} subcategory={p.SUBCATEGORY}/>)}

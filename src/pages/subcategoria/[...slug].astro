@@ -2,12 +2,11 @@
 import Layout from "../../layouts/Layout.astro";
 import FormDisplay from '../../components/category/FormDisplay';
 import WrapCard from '../../components/WrapCard.astro';
-const { slug } = Astro.params;//id category 
+const { slug } = Astro.params;
 
 //Get url params
 const url = new URL(Astro.request.url);
 const searchParams = url.searchParams;
-
 const sort = searchParams.get('sort') || 'id';
 
 //Use the search param of category to remember the current category and display the correct info in the select
@@ -61,7 +60,7 @@ async function getSubcategories(){
 const subcategories = await getSubcategories();
 ---
 <Layout>
-   <FormDisplay client:load paramValue={slug} url={apiUrl} nameValue={"Subcategoria"}/>
+   <FormDisplay client:load  UrlQueryToSubcategory={category} paramValue={slug} url={apiUrl} nameValue={"Subcategoria"}/>
    <section class="mx-auto px-5 gap-5">
       {
          subcategories.error ? <h3 class="opacity-50 w-12/12 text-nowrap">{subcategories.message}</h3> 

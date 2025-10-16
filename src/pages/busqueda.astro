@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Pagination from "../components/Pagination.astro";
 import Card from "../components/Card.astro";
-import NamePage from "../components/category/NamePage.astro";
+import NamePage from "../components/NamePage.astro";
 
 let apiUrl = "http://localhost:8080/api/intercar"; //Url de base
 const rgx = /[?&]/; //Regex que filtra los diferentes parametros en el req del cliente
@@ -46,7 +46,7 @@ const data = await getProductByText();
 <Layout>
 {
 	(data.success || Array.isArray(data.data) || data.length > 0) ? (
-<NamePage name={text} pages={data.length}/>
+		<NamePage title={text?.toLowerCase()} />
 		<div class="mb-10 mt-10 ">
 			<div class="grid xs:grid-cols-2 md:grid-cols-3 w-11/12 mx-auto gap-10">
 				{data.data.map((p: any) => <Card sku={p.sku} title={p.title}, price={p.price} subcategory={p.SUBCATEGORY}/>)}

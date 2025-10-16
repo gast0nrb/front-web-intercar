@@ -12,11 +12,9 @@ const getProducts = async () => {
       mode: "cors",
       method: "GET",
       });
-    console.log(getInfo)
     const jsonInfo = await getInfo.json();
     return jsonInfo.data;
     } catch (err) {
-    console.log(err)
     return err;
   }
 };

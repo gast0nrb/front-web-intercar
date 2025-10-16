@@ -41,7 +41,6 @@ const SelectDisplay = ({currentValue, setCurrentValue, url, nameValue}) => {
           id="categoria"
           className="p-2 
           rounded px-2 py-auto w-12/12
-          duration-100
           text-center
           text-zinc-600
           hover:text-zinc-800
@@ -49,14 +48,17 @@ const SelectDisplay = ({currentValue, setCurrentValue, url, nameValue}) => {
           duration-150
           border-1 border-zinc-300
           text-sm
-         ">
+         "
+           onChange={(e)=> {
+               setCurrentValue(e.target.value);
+           }}
+         key={`${nameValue}${currentValue}`}
+         >
             {
               values?.map((ct)=> 
                  <option selected={ct?.id == currentValue}
                  name={ct.id}
-                 onChange={(e)=> {
-                     setCurrentValue(e.target.value);
-                 }}
+                 value={ct.id}
                  key={ct?.id}>{ct?.name}</option>
               ) 
             }

@@ -60,11 +60,11 @@ const data = await getProduct();
       <h3 class="bg-neutral-200 font-bold">SUBCATEGORIA</h3>
       <a
         class="underline text-orange-300 hover:text-orange-500"
-        href={`/categorias/${data.SUBCATEGORY.fk_category}?subcategory=${data.SUBCATEGORY.id}&page=0`}
+        href={`/subcategoria/${data.SUBCATEGORY.id}?category=${data.SUBCATEGORY.fk_category}&page=0`}
         >{data.SUBCATEGORY.name.toLowerCase()}</a
       >
     </div>
-    <div id="wsp-button" class=" mt-5 mb-5 md:text-sm xs:text-xs">
+    <div id="wsp-button" class="mt-5 mb-5 md:text-sm xs:text-xs">
       <a
         href={`https://wa.me/+56942151261?text=Me%20interesa%20este%20producto%3A${data.title.toUpperCase()}%20con%20sku%20${data.sku.toUpperCase()}`}
         target="_blank"
