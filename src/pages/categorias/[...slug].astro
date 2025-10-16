@@ -59,7 +59,7 @@ const subcategories = await getSubcategories();
          : 
          <>
          <h3 class="col-span-full text-sm text-zinc-500">Selecciona una subcategoria</h3>
-         {subcategories.data.data.map((s)=> <CardSubcategory id={s.id} name={s.name}/>)}
+         {subcategories.data.data.map((s)=> <CardSubcategory currentCategory={slug} id={s.id} name={s.name}/>)}
          </>
       }  
    </section>

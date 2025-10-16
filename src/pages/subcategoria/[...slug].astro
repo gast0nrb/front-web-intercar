@@ -10,11 +10,14 @@ const searchParams = url.searchParams;
 
 const sort = searchParams.get('sort') || 'id';
 
+//Use the search param of category to remember the current category and display the correct info in the select
+const category = searchParams.get('category');
+
 /***CAMBIAR AL APIURL DE SUBCATEGORIAS**/
 /**Problema con el slug al recibir 2 y
    llamar a mi apiUrl con 2, cuando debo filtrar
 */
-const apiUrl = `http://localhost:8080/api/intercar/category/${slug}/subcategories`;
+const apiUrl = `http://localhost:8080/api/intercar/category/${category}/subcategories`;
 
 if (slug === undefined) {
     return Astro.redirect("/404");
