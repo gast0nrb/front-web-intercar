@@ -5,8 +5,8 @@ export default function Contact({ showContact, setShowContact }) {
                 onClick={(e) => setShowContact(false)}>
                 <img src="/close.svg" alt="close" className="w-5" />
             </button>
-            <section className="text-xs w-fit bg-white rounded-sm text-center shadow-2xl opacity-95 border-orange-400">
-                <h2 className="bg-neutral-800 w-full text-white text-sm mx-auto rounded-xs border-b-2 border-orange-500">¡Ponte en contacto!</h2>
+            <section className="xs:text-sm md:text-lg w-fit bg-white rounded-sm text-center shadow-2xl opacity-95 border-orange-400">
+                <h2 className="bg-neutral-800 w-full text-white text-lg mx-auto rounded-xs border-b-2 border-orange-500">¡Ponte en contacto!</h2>
                 <form action="" className="grid grid-cols-1 p-1">
                     <label htmlFor="" className="flex flex-col">
                         ¿Cómo te ayudamos?

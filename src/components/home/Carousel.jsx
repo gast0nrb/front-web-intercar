@@ -2,9 +2,9 @@ import { useState } from 'react';
 
 const Carousel = ({ borderBottom = "" }) => {
     const images = [
-        { id: 1, src: "/carousel-img-2.jpeg", alt: "Waze" },
+        { id: 1, src: "/carousel-4.png", alt: "Waze" },
         { id: 2, src: "/carousel-2.jpeg", alt: "WSP" },
-        { id: 3, src: "/esparco-3.png", alt: "Cars" }
+        { id: 3, src: "/carousel-3.png", alt: "Cars" }
     ];
 
     //chequear que no sobrepase los valores limitantes y realizar la operación de sumar o restar, sino reiniciar.
@@ -17,9 +17,9 @@ const Carousel = ({ borderBottom = "" }) => {
         <>
             <div className={`carousel ${borderBottom}`}>
                 <div className="carousel-inner">
-                    <div className="carousel-item active">
+                    <div className="carousel-item active w-full h-full object-fill">
                         <img src={images[currentIndex].src} alt={images[currentIndex].alt} 
-                        className='w-full h-full object-fill'/>
+                        className='w-full h-full object-cover object-center'/>
                     </div>
                 </div>
                 <button className="carouselPrev" onClick={handlePrev}>Anterior</button>

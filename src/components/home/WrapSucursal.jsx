@@ -32,9 +32,9 @@ const WrapSucursal = () => {
       <article className="mx-auto text-left md:text-lg xs:text-xs">
         <ul>
           <CitySucursal sucursalId={sucursalId} setSucursalId={setSucursalId} esSantiago={true} 
-            sucursales={sucursales.filter((s)=> s.fk_district == 2)}/>
+            sucursales={sucursales.filter((s)=> s.fk_district == 1)}/>
           <CitySucursal  sucursalId={sucursalId} setSucursalId={setSucursalId} esSantiago={false}
-            sucursales={sucursales.filter((s)=> s.fk_district != 2 )}/>
+            sucursales={sucursales.filter((s)=> s.fk_district != 1 )}/>
         </ul>
       </article>
     </section>
